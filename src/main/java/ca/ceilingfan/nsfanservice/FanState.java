@@ -1,12 +1,19 @@
 package ca.ceilingfan.nsfanservice;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * This class encapsulates state of a ceiling fan such as its direction and speed
  * @author atif_majeed
  *
  */
+@Entity
+@Table(name="FAN_STATE")
 public class FanState {
-	
+	@Id
+	private long id = 1;	
 	private int speed = 0;
 	private boolean reverse = false;
 	
@@ -25,6 +32,11 @@ public class FanState {
 		this.speed = fanSpeed;
 		this.reverse = reversed;
 	}
+	
+	public long getId() {
+		return id;
+	}
+	
 	public int getSpeed() {
 		return speed;
 	}
@@ -40,6 +52,6 @@ public class FanState {
 
 	@Override
 	public String toString() {
-		return "FanState [speed=" + speed + ", reverse=" + reverse + "]";
+		return "FanState [id=" + id +", speed=" + speed + ", reverse=" + reverse + "]";
 	}
 }
