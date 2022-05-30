@@ -17,6 +17,19 @@
 * schema.sql - creates table to save the state 
 * data.sql - populates table with the seed data for initial state
 
+## Docker
+* A public image of the application is available on the docker hub [atifmajeed/ns-service-ui:latest](https://hub.docker.com/layers/224023070/atifmajeed/ns-fan-service/latest/images/sha256-12e9eb2a5900d56b4de61efbe34b962fd3eceadb32228e2d72fa913058dafb2c?context=repo) to pull and run locally
+* `docker pull atifmajeed/ns-fan-service:latest`
+* Run the container: `docker run --rm -d -p 8080:8080 atifmajeed/ns-fan-service:latest`
+* Open browser to access http://localhost:8080/fan-state which will JSON response from the service
+* This project contains a Dockerfile. Run `docker build --tag=ns-fan-service:latest .` to build the application into a deployable docker image.
+
+
+## Local development and execution
+* Clone this repository
+* Run `mvnw spring-boot:run`
+* Open browser to access http://localhost:8080/fan-state
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 

@@ -50,6 +50,12 @@ public class CeilingFanController {
 	 return fanStateRepository.save(fanState);
 	}
 	
+	/**
+	 * Handles error if incoming request contains bad data. Returns a validation error response (Status code 400)
+	 * with the field that is invalid
+	 * @param ex
+	 * @return
+	 */
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public Map<String, String> handleValidationExceptions(
