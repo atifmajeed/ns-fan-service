@@ -3,6 +3,9 @@ package ca.ceilingfan.nsfanservice;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 
 /**
  * This class encapsulates state of a ceiling fan such as its direction and speed
@@ -13,8 +16,13 @@ import javax.persistence.Table;
 @Table(name="FAN_STATE")
 public class FanState {
 	@Id
-	private long id = 1;	
+	private long id = 1;
+	
+	@Min(value = 0L, message = "Speed must be between 0 and 3")
+	@Max(value = 3L, message = "Speed must be between 0 and 3")
 	private int speed = 0;
+	
+	@NotNull
 	private boolean reverse = false;
 	
 	/**
