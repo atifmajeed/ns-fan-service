@@ -34,8 +34,13 @@ The service uses bean level validation on data class `FanState` to ensure speed 
 
 ## Local development and execution
 * Clone this repository
+* Install JDK 17+, set JAVA_HOME
 * Run `mvnw spring-boot:run`
 * Open browser to access http://localhost:8080/fan-state
+
+
+## Kubernettes
+This project contains deployment.yaml files to run a pod on minikube.
 
 ### Reference Documentation
 For further reference, please consider the following sections:

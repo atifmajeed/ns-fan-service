@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ns-fan-service
+  name: ns-fan-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ns-fan-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ns-fan-service
+    spec:
+      containers:
+      - image: atifmajeed/ns-fan-service
+        name: ns-fan-service
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ns-fan-service
+  name: ns-fan-service
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: ns-fan-service
+  type: ClusterIP
+status:
+  loadBalancer: {}
